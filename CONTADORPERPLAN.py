@@ -15,27 +15,17 @@ class ContadorPerplan(ft.Column):
         self.tabs = None
         self.novo_veiculo_input = None
         self.nova_bind_input = None
-        self.key_mappings = {
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
-            "5": "5",
-            "6": "6",
-            "7": "7",
-            "8": "8",
-            "9": "9",
-            "0": "0",
-            keyboard.KeyCode.from_vk(96): "np0",
-            keyboard.KeyCode.from_vk(97): "np1",
-            keyboard.KeyCode.from_vk(98): "np2",
-            keyboard.KeyCode.from_vk(99): "np3",
-            keyboard.KeyCode.from_vk(100): "np4",
-            keyboard.KeyCode.from_vk(101): "np5",
-            keyboard.KeyCode.from_vk(102): "np6",
-            keyboard.KeyCode.from_vk(103): "np7",
-            keyboard.KeyCode.from_vk(104): "np8",
-            keyboard.KeyCode.from_vk(105): "np9",
+        self.numpad_mappings = {
+            96: "np0",
+            97: "np1",
+            98: "np2",
+            99: "np3",
+            100: "np4",
+            101: "np5",
+            102: "np6",
+            103: "np7",
+            104: "np8",
+            105: "np9",
         }
         self.setup_ui()
 
@@ -201,10 +191,10 @@ class ContadorPerplan(ft.Column):
     def on_key_press(self, key):
         try:
             char = None
-            if hasattr(key, 'vk'):  # Se a tecla tiver um código virtual
-                char = self.key_mappings.get(keyboard.KeyCode.from_vk(key.vk))
-            if char is None and hasattr(key, 'char'):  # Se a tecla não tiver código virtual ou não estiver mapeada, use o caractere
-                char = self.key_mappings.get(key.char)
+            if hasattr(key, 'vk') and key.vk in self.numpad_mappings:  # Se a tecla for do numpad
+                char = self.numpad_mappings[key.vk]
+            elif hasattr(key, 'char'):  # Se for uma tecla normal
+                char = key.char
             if char:
                 veiculo = self.binds.get(char)
                 if veiculo:
