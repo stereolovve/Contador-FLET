@@ -52,11 +52,11 @@ class VehicleCounter(ft.Column):
         self.load_categories(tab)
 
     def add_row(self, vehicle, tab): 
-        label_vehicle = ft.Text(f"{vehicle}", width=100, size=16)
+        label_vehicle = ft.Text(f"{vehicle}", width=110, size=20)
         label_count = ft.Text(f"{self.counts[vehicle]}", width=50, size=20)
         self.labels[vehicle] = label_count
-        add_button = ft.IconButton(icon=ft.icons.ADD, icon_color="green", on_click=lambda e, v=vehicle: self.increment(v))
-        remove_button = ft.IconButton(icon=ft.icons.REMOVE, icon_color="red", on_click=lambda e, v=vehicle: self.decrement(v))
+        add_button = ft.IconButton(ft.icons.ADD, style=ft.ButtonStyle(color=ft.colors.WHITE, bgcolor=ft.colors.GREEN), on_click=lambda e, v=vehicle: self.increment(v))
+        remove_button = ft.IconButton(ft.icons.REMOVE, style=ft.ButtonStyle(color=ft.colors.WHITE, bgcolor=ft.colors.RED), on_click=lambda e, v=vehicle: self.decrement(v))
         row = ft.Row([label_vehicle, label_count, add_button, remove_button])
         tab.controls.insert(-1, row)
 
@@ -195,6 +195,8 @@ class VehicleCounter(ft.Column):
 def main(page: ft.Page):
     counter = VehicleCounter()
     page.scroll = ft.ScrollMode.AUTO
+    page.window.width = 400  # Define a largura da janela
+    page.window.height = 600  # Define a altura da janela
     page.add(counter)
     
     counter.start_listener()
