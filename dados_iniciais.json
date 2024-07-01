@@ -1,0 +1,12 @@
+[
+  { "nome": "Leve", "tecla": "1" },
+  { "nome": "VUC", "tecla": "2" },
+  { "nome": "Moto", "tecla": "3" },
+  { "nome": "Cami2", "tecla": "4" },
+  { "nome": "Cami3", "tecla": "5" },
+  { "nome": "Cami4", "tecla": "6" },
+  { "nome": "Carr5", "tecla": "7" },
+  { "nome": "Carr6", "tecla": "8" },
+  { "nome": "Carr7", "tecla": "9" },
+  { "nome": "Carr9", "tecla": "0" }
+]
