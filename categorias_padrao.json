@@ -1,0 +1,12 @@
+[
+  { "veiculo": "Leve", "bind": "1" },
+  { "veiculo": "VUC", "bind": "2" },
+  { "veiculo": "Moto", "bind": "3" },
+  { "veiculo": "Cami2", "bind": "4" },
+  { "veiculo": "Cami3", "bind": "5" },
+  { "veiculo": "Cami4", "bind": "6" },
+  { "veiculo": "Carr5", "bind": "7" },
+  { "veiculo": "Carr6", "bind": "8" },
+  { "veiculo": "Carr7", "bind": "9" },
+  { "veiculo": "Carr9", "bind": "0" }
+]
